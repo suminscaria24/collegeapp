@@ -1,0 +1,227 @@
+<html lang="en">
+    <head>
+        <title>
+            admin panel
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> 
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        {% load static %}
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style>
+          input{
+            margin:10px;
+          }
+          button{
+            margin:10px;
+
+          }
+          select{
+            margin:10px;
+
+          }
+          h5{
+            padding-left:18px;
+          }
+     
+        .box1{
+          color:rgb(219, 219, 15, 0.805);
+          display:flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction:column;
+          width:100%;
+        }
+        /* Color of the links BEFORE scroll */
+        .navbar-scroll .nav-link,
+        .navbar-scroll .navbar-toggler-icon,
+        .navbar-scroll .navbar-brand {
+          color: rgb(219, 219, 15, 0.805);
+        }
+        
+        /* Color of the links AFTER scroll */
+        .navbar-scrolled .nav-link,
+        .navbar-scrolled .navbar-toggler-icon,
+        .navbar-scrolled .navbar-brand {
+          color: rgb(219, 219, 15, 0.805);
+        }
+        
+        /* Color of the navbar AFTER scroll */
+        .navbar-scroll,
+        .navbar-scrolled {
+          background-color: #db48ac;
+        }
+        
+        .mask-custom {
+          backdrop-filter: blur(5px);
+          background-color: rgba(226, 88, 189, 0.15);
+        }
+        
+        .navbar-brand {
+          font-size: 1.75rem;
+          letter-spacing: 3px;
+        }
+        .container1{
+          margin: 150px;
+          display:flex;
+          background-color:rgba(219, 219, 15, 0.805) ;
+          border-radius: 10px;
+      }
+      .left{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          width: 50%;
+          color: rgb(219, 219, 15, 0.805);
+          padding: 120px 0;
+      }
+      h1{
+          font-size: 40px;
+          text-shadow: 2px 2px 3px rgba(219, 219, 15, 0.805);
+      
+      }
+      .left a{
+          width: 150px;
+          padding: 20px;
+          text-decoration: none;
+          text-align: center;
+          background-color: rgb(219, 219, 15, 0.805);
+          color: rgb(219, 219, 15, 0.805);
+          border-radius: 10px;
+          margin-top: 20px;
+      
+      }
+      .left a:hover{
+          background-color: rgb(219, 219, 15, 0.805);
+          color: rgb(219, 219, 15, 0.805);
+      
+      }
+      
+      .right{
+          width: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      .right img{
+          width: 100%;
+          height: 90%;
+          border-radius: 10px;
+          padding: 0 25px 0 0;
+      }
+
+
+      .container3{
+        margin:80px 200px;
+        display: flex;
+        flex-direction: column;
+      }
+      .header{
+        /* background-image: url({% static 'image/cover.jpg' %}); */
+        width: 100%;
+        height: 25vh;
+        display: flex;
+        align-items:center;
+        justify-content:center;
+      }
+      .header img{
+        margin-bottom: -180px;
+        z-index: 1;
+        
+      }
+      .footer{
+        backdrop-filter: blur(20px);
+        background-color: rgba(219, 219, 15, 0.805);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        
+    
+      }
+      .name{
+        padding: 100px 10px 10px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgb(219, 219, 15, 0.805);
+      }
+     
+      th,td{
+        border-collapse: collapse;
+        border: none;
+        color:rgb(219, 219, 15, 0.805);
+      }
+      th{
+        text-align: left;
+        padding: 15px;
+        border-bottom: 1px solid rgb(241, 238, 27);
+    
+      }
+      td{
+        padding: 15px;
+        border-bottom: 1px solid rgb(241, 238, 27);;
+      }
+      h3{
+        text-align:left;
+      }
+      input{
+        border:none;
+      }
+      .nav-item{
+        color:rgb(219, 219, 15, 0.805);
+      }
+    .nav-item:hover{
+        color:rgb(219, 219, 15, 0.805);
+    }
+  
+        
+        </style>
+        <body style="background-image:url(https://c4.wallpaperflare.com/wallpaper/890/314/495/books-library-architecture-shelves-wallpaper-preview.jpg);background-size:cover;background-attachment: fixed;background-repeat: no-repeat;">
+        
+              <nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
+                <div class="container-fluid">
+                  <a class="navbar-brand"href="{% url 'welcomeadmin' %}"><span style="color:rgb(219, 219, 15, 0.805);">LUDWIG MAXIMILIAN </span><span style="color: rgb(219, 219, 15, 0.805);">UNIVERSITY OF MUNICH</span></a>
+                  <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                  <div class="collapse navbar-collapse  justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+
+                      <li class="nav-item">
+                        <a class="nav-link text-warning" href="{% url 'load_admin_home' %}">Staffs</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-warning" href="{% url 'course1' %}">Add Course</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-warning" href="{% url 'student1' %}">Add Student</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-warning" href="{% url 'show_student_details' %}">Show Students Details</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-warning" href="{% url 'logout' %}">Logout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <!-- Navbar -->
+            {% block content %}
+            
+            {% endblock %}
+        </body>
+        </html>

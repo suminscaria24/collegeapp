@@ -1,0 +1,98 @@
+<html lang="en">
+    <head>
+        <title>
+            django session
+        </title>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <style>
+          input{
+            margin:10px;
+            border:none;
+            background-color: rgba(255, 255, 255, 0.6);
+            
+          }
+          button{
+            
+            margin:10px;
+            border:none;
+
+          }
+          .button {
+              border-radius: 8px;
+              transition-duration: 0.4s;
+              font-size: 12px;
+          }
+
+          .button:hover {
+              background-color: #dac910; /* Green */
+              color: rgb(137, 158, 44);
+          }
+          /* Color of the links BEFORE scroll */
+.navbar-scroll .nav-link,
+.navbar-scroll .navbar-toggler-icon,
+.navbar-scroll .navbar-brand {
+  color: #fff;
+}
+
+/* Color of the links AFTER scroll */
+.navbar-scrolled .nav-link,
+.navbar-scrolled .navbar-toggler-icon,
+.navbar-scrolled .navbar-brand {
+  color: #fff;
+}
+
+/* Color of the navbar AFTER scroll */
+.navbar-scroll,
+.navbar-scrolled {
+  background-color: #db48ac;
+}
+
+.mask-custom {
+  backdrop-filter: blur(5px);
+  background-color: rgba(202, 233, 75, 0.15);
+}
+
+.navbar-brand {
+  font-size: 1.75rem;
+  letter-spacing: 3px;
+}
+        </style>
+    </head>
+
+    
+        <body  style="background-image:url('https://c4.wallpaperflare.com/wallpaper/890/314/495/books-library-architecture-shelves-wallpaper-preview.jpg');background-size: cover;
+        background-repeat: no-repeat;">
+
+              <nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
+                <div class="container-fluid">
+                  <a class="navbar-brand"href="{% url 'load_loginpage' %}"><span style="color: rgba(219, 219, 15, 0.805);">LUDWIG MAXIMILIAN </span><span style="color: rgb(219, 219, 15, 0.805);">UNIVERSITY OF MUNICH</span></a>
+                  <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                  <div class="collapse navbar-collapse  justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link" style="color:darkkhaki ;" href="{% url 'load_loginpage' %}"><button class="button">LOGIN</button></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" style="color:darkkhaki ;" href="{% url 'sign_up' %}"><button class="button">STAFF REGISTER</button></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+              <!-- Navbar -->
+            
+            {% block content %}
+            
+            {% endblock %}
+        </body>
+        </html>

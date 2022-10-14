@@ -1,0 +1,70 @@
+{% extends 'base3.html' %}
+{% block content %}
+{% for u in user %}    
+<div class="container3"style="box-shadow: 1px 1px 5px white;">
+    <div class="header">
+        {% load static %}
+		{% if u.user_photo == '/static/image/default.png' %}
+                                    
+        <img src="{% static 'image/default.png' %}" class="rounded-circle"width="180px" height="180px" style="box-shadow: 1px 1px 10px white;">
+                                  
+    	{% else %}
+		<img src="{{ u.user_photo.url }}" class="rounded-circle"width="180px" height="180px" style="box-shadow: 1px 1px 10px;">
+        {% endif %}  
+    </div>
+    <div class="footer">
+          <div class="name"><h1>{{ u.user.first_name }} {{ u.user.last_name }}</h1></div>
+    
+
+          <table>
+            <tr>
+                <th>Gender</th>
+                <td>:</td>
+                <td>{{ u.user_gender }}</td>
+            </tr>
+            <tr>
+                <th>Addres</th>
+                <td>:</td>
+                <td>{{ u.user_address }}}</td>
+            </tr>
+            <tr>
+                <th>Email Id</th>
+                <td>:</td>
+                <td>{{ u.user.email }}</td>
+            </tr>
+            <tr>
+                <th>Contact Number</th>
+                <td>:</td>
+                <td>{{ u.user_mobile }}</td>
+            </tr>
+        </table>
+        <a href="javascript:history.go(-1);" class="btn btn-warning my-3 px-3 py-2">Go Back</a>
+
+    </div>
+	{% endfor %}
+</div>
+{% endblock %}
+
+
+{% comment %} <div class='container'>
+	<div class='row'>
+
+	
+		{% load static %}
+		{% if u.user_photo == '/static/image/default.png' %}
+                                    
+        <img src="{% static 'image/default.png' %}" class="w-25">
+                                  
+    	{% else %}
+		<img src="{{ u.user_photo.url }}" class="w-25">
+                                  
+        {% endif %}
+                                
+		<h1>{{ u.user.first_name }}{{ u.user.last_name }}</h1><br>
+		<h1 style="color:red;">{{ u.user_mobile }}</h1>
+		<input type="text" name="last_name" value="{{ u.user.last_name }}" style="border: 0;" class='form-control'>
+		
+		
+
+	</div>
+</div> {% endcomment %}

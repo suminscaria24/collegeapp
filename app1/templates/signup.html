@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<div class="row "style="margin:70px 0 0;">
+    <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+
+<form method="post" action="sign_up" class=" p-sm-10 m-sm-10 light"  style=" backdrop-filter: blur(50px);
+ box-shadow: 2px 2px 5px rgb(105, 101, 104); display:flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+/* border-radius: 20px; */
+" enctype="multipart/form-data">
+{% csrf_token %}
+<h1 class='text-center  text-warning my-2'><strong>REGISTRATION</strong></h1>
+{% for message in messages %}
+        <h5>
+            <div class="alert alert-success mt-5">
+                {{ message }}
+            </div>
+        </h5>
+{% endfor %}
+    <input style="box-shadow: 2px 2px 5px rgb(127, 125, 126);";type="text" name="fname" placeholder="Enter your first name"class=" px-3 py-2 m-0 my-2 w-75">
+    <input type="text" name="lname" placeholder="Enter your last name" class=" px-3 py-2 m-0 my-2 w-75">
+    <input type="text" name="address" placeholder="Enter your address" class=" px-3 py-2 m-0 my-2 w-75">
+    <input type="email" name="email" placeholder="Enter your email" class=" px-3 py-2 m-0 my-2 w-75">
+    <input type="text" name="uname" placeholder="Enter your username" class=" px-3 py-2 m-0 my-2 w-75">
+    <input type="password" name="passw" placeholder="Enter password"class=" px-3 py-2 m-0 my-2 w-75">
+    <input type="password" name="cpassw" placeholder="Enter confirm password" class=" px-3 py-2 m-0 my-2 w-75">
+    <div>
+    <input type="radio" name="gender" id="male" value="Male">
+    <lebel for="male">Male</lebel>
+    <input type="radio" name="gender" id="female" value="Female">
+    <lebel for="female">Female</lebel>
+    <input type="radio" name="gender" id="Other" value="Female">
+    <lebel for="other">Other</lebel>
+    </div>
+    
+    <input type="number" name="mobile" placeholder="Enter your mobile number" class=" px-3 py-2 m-0 my-2 w-75">
+    <h6>Select your profile photo</h6>
+    <input type="file" name="file" accept="image/*">
+    <button type="submit" class="form-control btn btn-warning w-50 rounded-pill">Submit</button>
+
+</form>
+</div>
+<div class="col-sm-3"></div>
+</div>
+
+
+{% endblock %}

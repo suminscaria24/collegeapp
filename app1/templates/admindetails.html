@@ -1,0 +1,46 @@
+
+{% extends 'base2.html' %}
+{% block content %}
+       
+<div class="container3"style="box-shadow: 1px 1px 5px white;">
+    <div class="header">
+        {% load static %}
+		{% if teachers.user_photo == '/static/image/default.png' %}
+                                    
+        <img src="{% static 'image/default.png' %}" class="rounded-circle"width="180px" height="180px" style="box-shadow: 1px 1px 10px;">
+                                  
+    	{% else %}
+		<img src="{{ teachers.user_photo.url }}" class="rounded-circle"width="180px" height="180px" style="box-shadow: 1px 1px 10px;">
+        {% endif %}  
+    </div>
+    <div class="footer">
+          <div class="name"><h1>{{ teachers.user.first_name }} {{ teachers.user.last_name }}</h1></div>
+    
+
+          <table>
+            <tr>
+                <th>Gender</th>
+                <td>:</td>
+                <td>{{ teachers.user_gender }}</td>
+            </tr>
+            <tr>
+                <th>Addres</th>
+                <td>:</td>
+                <td>{{ teachers.user_address }}</td>
+            </tr>
+            <tr>
+                <th>Email Id</th>
+                <td>:</td>
+                <td>{{ teachers.user.email }}</td>
+            </tr>
+            <tr>
+                <th>Contact Number</th>
+                <td>:</td>
+                <td>{{ teachers.user_mobile }}</td>
+            </tr>
+        </table>
+        <a href="javascript:history.go(-1);" class="btn btn-warning my-3 px-3 py-2">Go Back</a>
+
+    </div>
+</div>
+{% endblock %}

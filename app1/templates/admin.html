@@ -1,0 +1,36 @@
+{% extends 'base2.html' %}
+{% block content %}
+{% load static %}
+<div class="box1 my-5">
+    
+        <h1 style="margin:60px 0px 20px">STAFFS</h1>
+        <table class="table text-light table-striped w-75"style=" backdrop-filter: blur(1px);
+        background-color: rgba(219, 219, 15, 0.805);">
+        <thead>
+            <tr>
+                <th style="color:rgba(24, 24, 22, 0.805);">STAFF ID</th>
+                <th style="color:rgba(24, 24, 22, 0.805);">STAFF NAME</th>
+                <th style="color:rgba(24, 24, 22, 0.805);">EMAIL ID</th>
+                <th style="color:rgba(24, 24, 22, 0.805);">ACTION</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for teachers in teachers %}
+            <tr>
+                <td style="color:rgba(24, 24, 22, 0.805);">{{ teachers.id }}</td>
+                 <td><a href="{% url 'admin_details' teachers.id %}" style="text-decoration: none; 
+    color: rgba(24, 24, 22, 0.805);">{{ teachers.user.first_name }} {{ teachers.user.last_name }}</a></td>
+                <td style="color:rgba(24, 24, 22, 0.805);">{{ teachers.user.email }}</td>
+                <td><a href="{% url 'delete_tutor' teachers.id %}" class="btn btn-warning p-2 rounded">DELETE</a></td>
+                <!-- <td><a href="{% url 'delete_tutor' teachers.id %}" class="btn btn-warning p-2 rounded">EDIT</a></td> -->
+
+            </tr>
+        
+            {% endfor %} 
+       
+        
+    </table>
+    {% comment %} <button> <a href="{% url 'student1' %}">Register Page</a></button> {% endcomment %}
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'base3.html' %}
+{% block content %}
+
+
+    <div class="row container-fluid my-5">
+        <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+    
+    <form method="POST" action="{% url 'update_tutor' %}" class="width container rounded rounded-5 p-sm-5 m-5 text-light"  class="width container py-sm-5 my-sm-5" style="background-color: rgba(247, 247, 127, 0.805);display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* border-radius: 20px; */
+    " enctype="multipart/form-data">
+    {% csrf_token %}
+    <h1 class='text-center  text-secondary my-2'>UPDATE DETAILS</h1>
+    {% for message in messages %}
+            <h5>
+                <div class="alert alert-danger mt-5">
+                    {{ message }}
+                </div>
+            </h5>
+    {% endfor %}
+    {% for u in user %}
+    <div style="width:75%; padding:5px;"><h6 class=" p-0 m-0 text-secondary">FIRST NAME</h6></div>
+        <input type="text" name="fname" placeholder="Enter your first name" class=" px-3 py-2 m-0 my-2 w-75" value="{{u.user.first_name}}">
+        <div style="width:75%; padding:5px;"><h6 class=" p-0 m-0 text-secondary">LAST NAME</h6></div>
+        <input type="text" name="lname" placeholder="Enter your last name" class=" px-3 py-2 m-0 my-2 w-75"value="{{u.user.last_name}}">
+        <div style="width:75%; padding:5px;"><h6 class=" p-0 m-0 text-secondary">ADDRESS</h6></div>
+        <input type="text" name="address" placeholder="Enter your address" class=" px-3 py-2 m-0 my-2 w-75"value="{{u.user_address}}">
+        <div style="width:75%; padding:5px;"><h6 class=" p-0 m-0 text-secondary">EMAIL</h6></div>
+        <input type="email" name="email" placeholder="Enter your email" class=" px-3 py-2 m-0 my-2 w-75" value="{{u.user.email}}" >
+        <div style="width:75%; padding:5px;"><h6 class=" p-0 m-0 text-secondary">USERNAME</h6></div>
+        <input type="text" name="uname" placeholder="Enter your username" class=" px-3 py-2 m-0 my-2 w-75" value="{{u.user.username}}">
+        <div class="form-group" style="width:75%; padding:5px;"><h6 class=" p-0 m-0 text-secondary">GENDER</h6><br>
+            <input type="radio" name="gender" id="male" value="Male"{% if u.user_gender == "Male" %} checked {% endif %}>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="female" value="Female"{% if u.user_gender == "Female" %} checked {% endif %}>
+            <label for="female">Female</label>
+            <input type="radio" name="gender" id="Other" value="other"{% if u.user_gender == "other" %} checked {% endif %}>
+            <label for="other">Other</label>
+        </div>
+        
+        <div style="width:75%; padding:5px;"><h6 class=" text-secondary p-0 m-0">MOBILE NO</h6></div>
+        <input type="number" name="mobile" placeholder="Enter your mobile number" class=" px-3 py-2 m-0 my-2 w-75" value="{{u.user_mobile}}">
+        <div style="width:75%; padding:5px;"><h6 class=" text-secondary p-0 m-0">PHOTO</h6></div>
+        {% load static %}
+		{% if u.user_photo == '/static/image/default.png' %}
+                                    
+        <img src="{% static 'image/default.png' %}" class="w-25">
+                                  
+    	{% else %}
+		<img src="{{ u.user_photo.url }}" class="w-25 rounded-circle">
+                                  
+        {% endif %}
+        <br>
+        <input type="file" class=" px-3 py-2 m-0 my-2 w-75 bg-light rounded-pill" name="file" accept="image/*">
+         <button type="submit" class=" px-3 py-2 m-0 my-2 w-50 rounded-pill btn btn-warning">UPDATE</button>
+       
+    					
+        {% endfor %}
+    </form>
+    </div>
+    <div class="col-sm-3"></div>
+    </div>
+    
+    
+	
+
+{% endblock %}

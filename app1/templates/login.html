@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+
+<div class="row container-fluid" style="margin:130px 0 0;">
+    <div class="col-sm-4 p-0 m-0"></div>
+        <div class="col-sm-4 p-0 m-0">
+<form method="post" action="userlogin" class="width container py-sm-3 my-sm-3" style="  display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+/* border-radius: 20px; */
+" enctype="multipart/form-data">
+{% csrf_token %}
+<h1 class='text-center text-warning my-3 p-0'>LOGIN HERE</h1>
+{% for message in messages %}
+        <h5>
+            <div class="alert alert-danger mt-5">
+                {{ message }}
+            </div>
+        </h5>
+{% endfor %}
+    <input type="text" name="uname" placeholder="Enter username" class=" px-3 py-2 m-0 my-2 w-75">
+    <input type="password" name="passw" placeholder="Enter password" class="px-3 py-2 m-0 my-2 w-75">
+    
+        
+        <button type="submit" class="form-control btn btn-warning w-50 text-center m-0 my-2">Submit</button>
+
+</form>
+</div>
+<div class="col-sm-4 p-0 m-0"></div>
+</div>
+
+
+{% endblock %}
